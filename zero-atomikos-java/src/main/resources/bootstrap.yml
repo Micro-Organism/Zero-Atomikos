@@ -1,0 +1,17 @@
+spring:
+    application:
+        name: zero-atomikos-java
+    profiles:
+        active: dev
+    web:
+        resources:
+            static-locations: classpath:static/,file:static/
+server:
+    port: 8080
+mybatis:
+    mapper-locations: classpath:mapper/*.xml
+logging:
+    level:
+        czs: debug
+        org.springframework: WARN
+        org.spring.springboot.dao: debug
