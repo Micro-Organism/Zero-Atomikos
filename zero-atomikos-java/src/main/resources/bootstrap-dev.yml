@@ -35,3 +35,5 @@ spring:
             loginTimeout: 30
             maintenanceInterval: 60
             maxIdleTime: 60
+    jta:
+        enabled: true

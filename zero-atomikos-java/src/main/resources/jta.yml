@@ -1,0 +1,11 @@
+com:
+    atomikos:
+        datasource:
+            automatic_resource_registration: true # 是否启用自动注册数据源
+        icatch:
+            ignore_jta_transaction: false # 是否忽略某些 XA 资源的终止错误 (默认：false)
+            max_retries: 3 # XA 资源的最大重试次数
+            max_thread_pool_size: 30 # 事务管理器的最大线程数，控制并发提交和回滚操作
+            synchronous2PC: true # JTA 事务日志的同步模式 (默认：true)
+            tm_unique_name: MyAppTransactionManager # Atomikos 的 TM 标识符，用于唯一标识事务管理器实例
+            xa_retry_timeout: 120 # XA 资源的最大等待时间，单位为秒

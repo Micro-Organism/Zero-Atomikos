@@ -1,0 +1,32 @@
+com:
+    atomikos:
+        icatch:
+            allow_subtransactions: true # 是否允许子事务 (默认：true)
+            automatic_resource_registration: true    # 是否自动注册资源 (默认：true)
+            checkpoint_interval: 500    # 检查点间隔时间，单位为毫秒 (默认：500ms)
+            client_demarcation: false    # 是否启用客户端事务边界 (默认：false)
+            console_log_level: INFO # 控制台日志级别 (默认：INFO)
+            default_jta_timeout: 300000 # 默认事务超时时间，单位为毫秒 (默认：300000ms，即5分钟)
+            default_max_wait_time_on_shutdown: 9223372036854775807
+            enable_logging: true    # 是否允许日志压缩，减少磁盘占用 (默认：true)
+            enable_recovery: true    # 是否启用事务恢复 (默认：true)
+            force_shutdown_on_vm_exit: false    # 是否在虚拟机退出时强制关闭 (默认：false)
+            forget_orphaned_log_entries_delay: 86400000
+            log_base_dir: ./transaction-logs # Atomikos 事务日志目录
+            log_base_name: tmlog # Atomikos 事务日志文件名前缀
+            log_file_size: 50000000 # Atomikos 事务日志文件大小限制 (默认：20000000 字节)
+            max_actives: 50 # 最大活动事务数
+            max_timeout: 600000 # 最大事务超时时间，单位为毫秒 (默认：600000ms，即10分钟)
+            oltp_max_retries: 5 # OLTP 事务最大重试次数 (默认：5)
+            oltp_retry_interval: 10000  # OLTP 事务重试间隔时间，单位为毫秒 (默认：10000ms，即10秒)
+            recovery_delay: 600000  # 启用多线程日志恢复 (默认：true) 事务恢复延迟时间，单位为毫秒 (默认：600000ms，即10分钟)
+            rmi_export_class: none  # 指定 RMI 导出类 (默认：none)
+            serial_jta_transactions: true    # 是否串行化 JTA 事务 (默认：true)
+            threaded_2pc: true  # 指定是否启用线程中断来强制终止事务 (默认：false)
+            trust_client_tm: false  # 指定是否信任客户端事务管理器 (默认：false)
+java:
+    naming:
+        factory:
+            initial: com.sun.jndi.rmi.registry.RegistryContextFactory    # JNDI 初始上下文工厂
+        provider:
+            url: rmi://localhost:1099    # JNDI 提供者 URL
